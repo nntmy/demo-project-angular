@@ -1,7 +1,11 @@
+<!-- <div class="search-hero">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText"  placeholder="&#61442;
+      Start searching ">
+  </div>  -->
 <table class="table table-striped table-hover">
   <thead>
-    <tr>
-      <th>id</th>
+    <tr  >
+      <th >Id</th>
       <th>Title</th>
       <th>Date</th>
       <th>Status</th>
@@ -11,7 +15,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let todo of todoArray" [style.color]="todo.status? 'green' : 'red'">
+    <tr *ngFor="let todo of todoArray " [style.color]="todo.status? 'green' : 'red'">
+      <!-- <tr *ngFor="let todo of filTodo " [style.color]="todo.status? 'green' : 'red'"> -->
       <td>{{todo.id}}</td>
       <td>{{todo?.title}}</td>
       <td>{{todo?.date}}</td>
@@ -21,9 +26,11 @@
           <button class="btn btn-primary" (click)="editButtonClick(todo.id)">
             Edit
           </button>
+          <!-- <button mat-mini-fab color="primary">Primary</button> -->
+
         </td>
         <td>
-
+            <!-- <button mat-mini-fab color="accent"><mat-icon>delete</mat-icon></button> -->
            <button type="button" class="btn btn-danger" (click)="deleteButtonClick(todo.id)">Delete</button>
 
           </td>

@@ -1,0 +1,31 @@
+<!-- <div class="md-form">
+  <input type="search" [(ngModel)]="searchText" placeholder="Search text">
+</div>
+<ul *ngFor="let task of todoArray | filter : searchText">
+  <li>{{task.title}}</li>
+</ul> -->
+
+<!-- <input #searchBox id="search-box" (input)="search(searchBox.value)" /> -->
+
+
+<!-- <input #searchBox id="search" [(ngModel)]="search" />
+<ul class="search-result">
+  <li *ngFor="let todo of todoAr| async" >
+    <a routerLink="/detail/{{todo.id}}">
+      {{todo.title}}
+    </a>
+  </li>
+</ul> -->
+
+<div  class="search-hero">
+    <!-- <input #searchBox id="search-box" class="form-control" type="text" name="search"   placeholder="&#61442;
+      Start searching "> -->
+      <input #searchBox  [(ngModel)]="searchText" />
+      <ul  class="search-result" *ngFor="let todo of filTodo ">
+          <a routerLink="/edit/{{todo.id}}">
+            {{todo.title}}
+          </a>
+      </ul>
+  </div> 
+
+

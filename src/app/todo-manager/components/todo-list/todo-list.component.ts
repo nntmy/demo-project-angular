@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { TodoService } from "../../services/todo.service";
 import { Subscription } from "rxjs";
 import { Todo } from "./../../todo";
@@ -13,13 +13,33 @@ export class TodoListComponent implements OnInit {
   public todoArray: Todo[] = [];
   public sub: Subscription;
 
-  constructor(
-    public todoSer: TodoService, 
-    private _router: Router,
-    ) {}
+  public colorDe: string = "A86AD1";
+  
+  // filTodo: Todo[];
+
+  // private _searchText: string;
+
+  // filter
+  // get searchText(): string {
+  //   return this._searchText;
+  // }
+  // set searchText(value: string) {
+  //   this._searchText = value;
+  //   this.filTodo = this.filterTodo(value);
+  // }
+
+  // filterTodo(key: string) {
+  //   return this.todoArray.filter(
+  //     todo => todo.title.toLowerCase().indexOf(key.toLowerCase()) !== -1
+  //   );
+  // }
+  //
+  constructor(public todoSer: TodoService, private _router: Router) {}
 
   ngOnInit() {
     this.showTodo();
+    //this.filTodo = this.todoArray;
+    
   }
   //show value data of server
   showTodo(): void {
@@ -51,9 +71,9 @@ export class TodoListComponent implements OnInit {
     this.sub = this.todoSer.deleteData(id).subscribe(
       () => {
         //let index = this.getIndex(data.id);
-        //this.todoArray.splice(id);
+        this.todoArray.splice(id);
         //this._router.navigate(['']);
-        window.location.reload();
+        //window.location.reload();
       },
       error => {
         console.log(`error`);

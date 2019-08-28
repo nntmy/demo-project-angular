@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http"; // import http
 import { Todo } from "./../todo";
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
+import { catchError, map, tap } from 'rxjs/operators';
 Observable;
 Todo;
 HttpClient;
@@ -37,6 +38,28 @@ export class TodoService {
   deleteData(id: number): Observable<Todo[]> {
     return this.http.delete<Todo[]>(`${this.API}/${id}`);
   }
+
+  //search 
+  // searchTodo(title: string): Observable<Todo[]> {
+  //   if (!title.trim()) {
+  //     // if not search term, return empty hero array.
+  //     return of([]);
+  //   }
+  //   return this.http.get<Todo[]>(`${this.API}/?title=${title}`);
+    
+  // }
+
+  searchTodo(text: string): Observable<Todo[]> {
+    if (!text.trim()) {
+      // if not search text, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Todo[]>(`${this.API}/?title=${text}`);
+    
+  }
+    
+
+
   // xu ly bat loi
   handleError(err) {
     // kiem tra err thuoc kieu du lieu error

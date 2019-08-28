@@ -17,6 +17,20 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "format-table-button": [
+        "dist/format-table-button"
+      ],
+      "format-table-button/*": [
+        "dist/format-table-button/*"
+      ],
+      "format-paragraph": [
+        "dist/format-paragraph"
+      ],
+      "format-paragraph/*": [
+        "dist/format-paragraph/*"
+      ]
+    }
   }
 }
