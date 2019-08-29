@@ -1,38 +1,74 @@
-import { Component, OnInit, Input, Renderer2, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, Renderer2, ElementRef } from "@angular/core";
 
 @Component({
-  selector: 'lib-format-table-button',
+  selector: "lib-format-table-button",
   template: `
-    <p>
-      format-table-button works!
-    </p>
+    <button class="button" [style.background-color]="bgColor" >
+      <ng-content></ng-content>
+    </button>
   `,
   styles: [
     `
-    div {
-      padding: 20px;
-      margin: 10px auto;
-      box-shadow: 1px 3px 10px 1px rgba(0, 0, 0, 0.3);
-      border-radius: 7px;
-    }
+      .button {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(0, 0, 0, 0.14),
+          0 0 0 0 rgba(0, 0, 0, 0.12);
+
+          background-color:#673ab7;
+        border-radius: 4px;
+        line-height: 36px;
+        padding: 0 16px;
+        min-width: 64px;
+        display: inline-block;
+        -webkit-tap-highlight-color: transparent;
+        border: none;
+        box-sizing: border-box;
+        position: relative;
+      }
     `
   ]
 })
 export class FormatTableButtonComponent implements OnInit {
+  @Input() textColor: string = "#FFFFFF";
+  //colorDefault:string= "#3976CE";
+  //@Input() brRadiur: string = "inherit";
+  @Input('bgColor') bgColor: string ;
+  //private colorBut:string = " CE398C";
 
-  @Input() color: string = "rgb(42,100,250)"
-  @Input() bgColor: string = "rgba(0,0,30,0.9)"
-  @Input() font: string = "consolas, monospace"
-
-  constructor(
-    private renderer: Renderer2, 
-    private el: ElementRef
-    ) { }
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit() {
-    this.renderer.setStyle(this.el.nativeElement.firstElementChild, 'color', this.color)
-    this.renderer.setStyle(this.el.nativeElement.firstElementChild, 'backgroundColor', this.bgColor)
-    this.renderer.setStyle(this.el.nativeElement.firstElementChild, 'font-family', this.font)
+    console.log('bgcolor',this.bgColor);
+    //this.colorDefault=this.bgColor;
+    // const but = this.renderer.createElement("button");
+    // const text = this.renderer.createText("Hello world!");
+
+    // this.renderer.appendChild(but, text);
+    // this.renderer.appendChild(this.el.nativeElement, but);
+    this.renderer.setStyle(
+      this.el.nativeElement.firstElementChild,
+      "color",
+      this.textColor
+    );
+    this.renderer.setStyle(
+      this.el.nativeElement.firstElementChild,
+      "backgroundColor",
+      this.bgColor
+    );
+    // this.renderer.setStyle(
+    //   this.el.nativeElement.firstElementChild,
+    //   "border-radius",
+    //   this.brRadiur
+    // );
   }
 
+ 
+  //nhan mau tu todo
+  // setMyStyles() {
+  //   //console.log('set my style');
+  //   let styles = {
+  //     'background-color': this.bgColor
+
+  //   };
+  //   return styles;
+  // }
 }

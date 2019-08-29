@@ -1,0 +1,47 @@
+.task {
+    /* list-style-type: none; */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+   
+  }
+  
+  ul {
+    float: left;
+    width: 20%;
+    
+    padding-left: 10px;
+  }
+.app-dis{
+    float: left;
+    width: 15%;
+}
+.app-dis{
+  float: left;
+  width: 15%;
+  padding: 0px;
+}
+
+#container{
+  background-color: aliceblue;
+}
+.container {
+  width: 700px;
+  border: 1px solid #333;
+  padding: 10px;
+}
+/*==cột #sidebar==*/
+#sidebar {
+  width: 200px;
+  height: 48px;
+  
+  float: right;
+ }
+ /*==cột #post==*/
+#post {
+  width: 470px;
+  height: 48px;
+  
+  float: left;
+}

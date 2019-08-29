@@ -1,0 +1,20 @@
+<!-- <mat-chip-list>
+  <ul class="task"> </ul>
+  <ul class="task"> </ul>
+  <ul class="task"> </ul>
+  <ul class="task"> </ul>
+</mat-chip-list>
+<div >
+  
+</div> -->
+
+<div class="task">
+  <ul style="width: 50px">{{task.id}}</ul>
+    <ul class="title">{{task.title}}</ul>
+    <ul>{{task.date}}</ul>
+    <ul>{{task.status? 'Complete':'Waitting' }}</ul>
+    <ul>{{task.block}}</ul>
+    <!-- <ul><button class="btn btn-primary" (click)="editButtonClick(task.id)">Edit</button>
+      <button type="button" class="btn btn-danger" (click)="deleteButtonClick(task.id)">Delete</button></ul> -->
+  
+  </div>

@@ -23,8 +23,8 @@ export class SearchComponent implements OnInit {
   //searchText:string;
 
   public todoArray: Todo[] = [];
-  filTodo: Todo[];
-
+  filTodo: Todo[]=null;
+a:Todo[];
   private _searchText: string;
   constructor(
     public todoSer:TodoService
@@ -42,16 +42,25 @@ export class SearchComponent implements OnInit {
     set searchText(value: string) {
       this._searchText = value;
       this.filTodo = this.filterTodo(value);
+      
     }
   
-    filterTodo(key: string) {
+    filterTodo(key: string){
+      
       return this.todoArray.filter(
         todo => todo.title.toLowerCase().indexOf(key.toLowerCase()) !== -1
       );
+     
     }
+    
+    // search(term: string): void {
+    //   this.searchTerms.next(term);
+    // }
+
   ngOnInit() {
    this.showTodo();
-   this.filTodo=this.todoArray;
+   
+
   }
   showTodo(): void {
     this.sub = this.todoSer.getTodo().subscribe(

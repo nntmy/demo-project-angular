@@ -30,6 +30,12 @@
       ],
       "format-paragraph/*": [
         "dist/format-paragraph/*"
+      ],
+      "my-button": [
+        "dist/my-button"
+      ],
+      "my-button/*": [
+        "dist/my-button/*"
       ]
     }
   }

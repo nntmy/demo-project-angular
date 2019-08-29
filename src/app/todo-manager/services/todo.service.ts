@@ -35,7 +35,9 @@ export class TodoService {
   }
 
   // xoa data
-  deleteData(id: number): Observable<Todo[]> {
+  deleteData(todo:Todo|number): Observable<Todo[]> {
+    const id = typeof todo === 'number' ? todo : todo.id;
+    //const url = `${this.heroesUrl}/${id}`;
     return this.http.delete<Todo[]>(`${this.API}/${id}`);
   }
 

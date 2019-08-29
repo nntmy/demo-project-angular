@@ -86,15 +86,16 @@ export class TodoAddComponent implements OnInit {
   addFormToOTodo() {
     this.oTodo.title = this.frmAdd.value.title;
     this.oTodo.date = this.frmAdd.value.date;
-    if (this.frmAdd.value.status == "true") {
-      this.oTodo.block = this.frmAdd.value.block; 
-      console.log('asasssssssssssssssssss',this.oTodo.block);
-      return (this.oTodo.status = true);
+    this.oTodo.status=this.frmAdd.value.status;
+    // if (this.frmAdd.value.status == "true") {
+      
+    //   console.log('asasssssssssssssssssss',this.oTodo.block);
+    //   return (this.oTodo.status = true);
           
-    } else {
-      return (this.oTodo.status = false);
-    }
-    
+    // } else {
+    //   return (this.oTodo.status = false);
+    // }
+    this.oTodo.block = this.frmAdd.value.block; 
     
   }
   onSubmit() {

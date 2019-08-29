@@ -22,10 +22,9 @@
       Start searching "> -->
       <input #searchBox  [(ngModel)]="searchText" />
       <ul  class="search-result" *ngFor="let todo of filTodo ">
-          <a routerLink="/edit/{{todo.id}}">
+          <a routerLink="/edit/{{todo.id}}" >
             {{todo.title}}
           </a>
       </ul>
   </div> 
-
 
