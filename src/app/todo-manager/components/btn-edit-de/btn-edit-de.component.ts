@@ -13,7 +13,10 @@ export class BtnEditDeComponent implements OnInit {
   @Input() task:Todo;
   @Input() arr:Todo[];
   @Output('deleteButtonClick') arrAfterDe = new EventEmitter<Todo[]>();
-  
+  @Output('selectTodo') selcTodo = new EventEmitter<Todo>();
+
+  selectedTodo:Todo;
+  //displayDialog:boolean;
   
   constructor(
     public todoSer: TodoService,
@@ -26,10 +29,19 @@ export class BtnEditDeComponent implements OnInit {
   editButtonClick(todoId: number) {
     this._router.navigate(["/edit", todoId]);
   }
+
   deleteButtonClick(todo:Todo) {
    console.log('toaaaaaaaaaa',this.arr);
     this.arr = this.arr.filter(h => h !== todo);
     this.todoSer.deleteData(todo).subscribe();
     this.arrAfterDe.emit(this.arr);
   }
+
+  selectTodo(task: Todo) {
+    this.selectedTodo = task;
+    //this.displayDialog = true;
+    this.selcTodo.emit(this.selectedTodo);
+    //console.log('seleccccccccccc',task);
+    //event.preventDefault();
+}
 }

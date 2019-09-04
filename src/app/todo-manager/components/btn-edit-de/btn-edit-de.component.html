@@ -1,4 +1,9 @@
 <div class="btn">
-  <button class="app-dis" class="btn btn-primary" (click)="editButtonClick(task.id)">Edit</button>
-  <button class="app-dis" type="button" class="btn btn-danger" (click)="deleteButtonClick(task)">Delete</button>
+
+  <button pButton type="button" icon="pi pi-pencil" class="ui-button-success" (click)="editButtonClick(task.id)"></button>
+  
+  <button pButton type="button" icon="pi pi-times" class="ui-button-danger" (click)="deleteButtonClick(task)"></button>
+  
+  <button pButton type="button" icon="pi pi-search" (click)="selectTodo(task)"></button>
+
 </div>

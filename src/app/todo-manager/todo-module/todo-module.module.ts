@@ -13,6 +13,7 @@ import { ColorComponent } from "../color/color.component";
 import { FilterPipe } from "../filter.pipe";
 import { TaskComponent } from "../components/task/task.component";
 import { BtnEditDeComponent } from "../components/btn-edit-de/btn-edit-de.component";
+import { TodoDetailComponent } from '../components/todo-detail/todo-detail.component';
 //library
 //import {FormatParagraphComponent} from '../../../../projects/format-paragraph/src/lib/format-paragraph.component'
 import { FormatParagraphModule } from "format-paragraph";
@@ -26,9 +27,10 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule, MatCommonModule } from "@angular/material";
 //PrimeNG
 import { ButtonModule } from "primeng/components/button/button";
+import {DialogModule} from 'primeng/dialog';
 //import {BrowserModule} from '@angular/platform-browser';
 //import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
-import { MenuItem } from "primeng/api"; //api
+//import { MenuItem, DialogService } from "primeng/api"; //api
 import { from } from "rxjs";
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { from } from "rxjs";
     SearchComponent,
     FilterPipe,
     TaskComponent,
-    BtnEditDeComponent
+    BtnEditDeComponent,
+    TodoDetailComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +66,9 @@ import { from } from "rxjs";
     //MatSidenavModule
     //AccordionModule,
     //BrowserModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule
+   
   ],
   exports: [
     TodoComponent //export de module cha co the goi va su dung <app-todo>

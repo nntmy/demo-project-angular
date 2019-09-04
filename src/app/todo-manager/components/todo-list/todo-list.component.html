@@ -62,7 +62,11 @@
   </div>
 
   <div id="sidebar">
-    <app-btn-edit-de [task]="todo" [arr]="todoArray" (deleteButtonClick)="getArrChange($event)"></app-btn-edit-de>
+    <app-btn-edit-de [task]="todo" [arr]="todoArray" (deleteButtonClick)="getArrChange($event)"
+      (selectTodo)="selectedTodo($event)"></app-btn-edit-de>
+
   </div>
 
+
 </div>
+<app-todo-detail [selectTodo]="selecTodo"></app-todo-detail>

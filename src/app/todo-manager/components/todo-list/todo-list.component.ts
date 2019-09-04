@@ -14,7 +14,10 @@ export class TodoListComponent implements OnInit {
   public sub: Subscription;
 
   public colorDe: string = "A86AD1";
-
+  
+  
+  @Input() selecTodo:Todo;
+  
   // filTodo: Todo[];
 
   // private _searchText: string;
@@ -34,7 +37,7 @@ export class TodoListComponent implements OnInit {
   //   );
   // }
   //
-  constructor(public todoSer: TodoService, private _router: Router) {}
+  constructor(public todoSer: TodoService) {}
 
   ngOnInit() {
     this.showTodo();
@@ -88,4 +91,12 @@ export class TodoListComponent implements OnInit {
   // }
   // );
   //}
+
+  selectedTodo(event){
+    this.selecTodo=event;
+   
+    //console.log('list',this.selecTodo,this.displayDialog);
+    //event.preventDefault();
+    
+    }
 }

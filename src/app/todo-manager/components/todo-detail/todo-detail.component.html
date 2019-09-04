@@ -1,0 +1,17 @@
+<p-dialog header="Details" [(visible)]="selectTodo " [responsive]="true" showEffect="fade" [modal]="true"
+  [style]="{width: '225px'}">
+  <div class="ui-g" *ngIf="selectTodo">
+
+    <div class="ui-g-4">Title: </div>
+    <div class="ui-g-8">{{selectTodo.title}}</div>
+
+    <div class="ui-g-4" style="color: rosybrown">Date: </div>
+    <div class="ui-g-8">{{selectTodo.date}}</div>
+
+    <div class="ui-g-4">Status: </div>
+    <div class="ui-g-8">{{selectTodo.status}}</div>
+
+    <div class="ui-g-4">Block: </div>
+    <div class="ui-g-8">{{selectTodo.block}}</div>
+  </div>
+</p-dialog>
