@@ -1,52 +1,4 @@
-<!-- <div class="search-hero">
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchText"  placeholder="&#61442;
-      Start searching ">
-  </div>  -->
-<!-- <table class="table table-striped table-hover">
-  <thead>
-    <tr  >
-      <th >Id</th>
-      <th>Title</th>
-      <th>Date</th>
-      <th>Status</th>
-      <th>Block</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let todo of todoArray "  [style.color]="todo.status? 'green' : 'red'">-->
-<!-- <tr *ngFor="let todo of filTodo " [style.color]="todo.status? 'green' : 'red'"> -->
-<!-- <td>{{todo.id}}</td>
-      <td>{{todo?.title}}</td>
-      <td>{{todo?.date}}</td>
-      <td>{{todo?.status ? 'Complete' :'Waitting'}}</td>
-      <td>{{todo?.block}}</td> 
-      
-      <td>
-          <button class="btn btn-primary" (click)="editButtonClick(todo.id)">
-            Edit
-          </button>-->
-<!-- <button mat-mini-fab color="primary">Primary</button> -->
-
-<!-- </td>
-        <td>-->
-<!-- <button mat-mini-fab color="accent"><mat-icon>delete</mat-icon></button> -->
-<!--   <button type="button" class="btn btn-danger" (click)="deleteButtonClick(todo.id)">Delete</button>
-
-          </td>
-    </tr>
-  </tbody>
-</table>  -->
-
-<!-- <div *ngFor="let todo of todoArray "  [style.color]="todo.status? 'green' : 'red'">
- 
-</div> -->
-
-
-
-
-<div id="content" class="container">
+<!-- <div id="content" class="container">
   <div class="task" style="width: 470px">
     <ul style="width:50px">Id</ul>
     <ul>Title</ul>
@@ -58,15 +10,52 @@
 <div id="content" class="container" *ngFor="let todo of todoArray ">
 
   <div id="post">
-    <app-task [task]="todo" [style.color]="todo.status? 'green' : 'red'"></app-task>
-  </div>
+    <app-task [task]="todo" [style.color]="todo.status? 'green' : 'red'"></app-task> -->
+<!-- </div>
 
   <div id="sidebar">
     <app-btn-edit-de [task]="todo" [arr]="todoArray" (deleteButtonClick)="getArrChange($event)"
       (selectTodo)="selectedTodo($event)"></app-btn-edit-de>
 
+      <lib-format-paragraph  routerLink="/edit/{{todo.id}}" icon="pi pi-pencil" class="ui-button-success"></lib-format-paragraph> -->
+<!--       
   </div>
+</div> -->
+<!-- 
+<app-todo-detail [selectTodo]="selecTodo"></app-todo-detail> -->
 
+<p-virtualScroller [value]="todoArray" scrollHeight="200px" [itemSize]="50">
+  <p-header>
+    <div class="ui-g" style="width: 600px">
+      <div class="ui-g-12 ui-md-3">
+        <div class="ui-g-10 ui-sm-6">Title</div>
+      </div>
+      <div class="ui-g-12 ui-md-3">
+        <div class="ui-g-10 ui-sm-6">Date</div>
+      </div>
+      <div class="ui-g-12 ui-md-3">
+        <div class="ui-g-10 ui-sm-6">Status</div>
+      </div>
+      <div class="ui-g-12 ui-md-3">
+        <div class="ui-g-10 ui-sm-6">Block</div>
+      </div>
+    </div>
+  </p-header>
+  <ng-template let-todo pTemplate="item" let-i="index">
+    <div id="post">
+      <!-- <app-task [task]="todo" [style.color]="todo.status? 'green' : 'red'"></app-task> -->
+      <lib-table-data [title]="todo.title" [date]="todo.date" [status]="todo.status" [block]="todo.block"
+        [style.color]="todo.status ? 'green' : 'red'"></lib-table-data>
+    </div>
+    <div id="sidebar">
+      <!-- <app-btn-edit-de [task]="todo" [arr]="todoArray" (deleteButtonClick)="getArrChange($event)"
+        (selectTodo)="selectedTodo($event)"></app-btn-edit-de> -->
+      <lib-btn-edit routerLink="/edit/{{ todo.id }}"></lib-btn-edit>
+      <lib-btn-delete (click)="deleteClick(todo)" (clickButton)="getData($event)"></lib-btn-delete>
+      <lib-btn-dialog (click)="getData(todo)"></lib-btn-dialog>
+    </div>
+  </ng-template>
+</p-virtualScroller>
+<lib-show-dialog [titleDialog]="sendData?.title"></lib-show-dialog>
+<p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
 
-</div>
-<app-todo-detail [selectTodo]="selecTodo"></app-todo-detail>

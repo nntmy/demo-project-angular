@@ -8,8 +8,12 @@ import {Todo} from '../../todo';
 export class TaskComponent implements OnInit {
 
 
+
   @Input() task: Todo;
-  constructor() { }
+  constructor() {
+  console.log('task',this.task);
+
+   }
 
   ngOnInit() {
   }

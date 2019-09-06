@@ -21,8 +21,8 @@
     <!-- <input #searchBox id="search-box" class="form-control" type="text" name="search"   placeholder="&#61442;
       Start searching "> -->
       <input #searchBox  [(ngModel)]="searchText" />
-      <ul  class="search-result" *ngFor="let todo of filTodo ">
-          <a routerLink="/edit/{{todo.id}}" >
+      <ul  class="search-result" *ngFor="let todo of filTodo " >
+          <a routerLink="/edit/{{todo.id}}" *ngIf="searchText">
             {{todo.title}}
           </a>
       </ul>

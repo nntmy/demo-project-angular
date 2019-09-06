@@ -14,10 +14,10 @@ export class TodoListComponent implements OnInit {
   public sub: Subscription;
 
   public colorDe: string = "A86AD1";
-  
-  
-  @Input() selecTodo:Todo;
-  
+  sendData: Todo;
+  displayDialog=true;
+  @Input() selecTodo: Todo;
+
   // filTodo: Todo[];
 
   // private _searchText: string;
@@ -41,6 +41,7 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit() {
     this.showTodo();
+    
     //this.filTodo = this.todoArray;
   }
   //show value data of server
@@ -56,9 +57,24 @@ export class TodoListComponent implements OnInit {
     );
   }
 
-  getArrChange(event){
-    this.todoArray=event;
+  getArrChange(event) {
+    this.todoArray = event;
   }
+  selectedTodo(event){
+    this.selecTodo=event;
+  }
+  //gui data sang lib btn-dialog
+  getData(todo: Todo) {
+    this.sendData = todo;
+
+    console.log("sendData", this.sendData);
+  }
+ 
+  deleteClick(todo: Todo) {
+    this.todoArray = this.todoArray.filter(h => h != todo);
+    this.todoSer.deleteData(todo).subscribe();
+  }
+
   // editButtonClick(todoId: number) {
   //   this._router.navigate(["/edit", todoId]);
   // }
@@ -91,12 +107,4 @@ export class TodoListComponent implements OnInit {
   // }
   // );
   //}
-
-  selectedTodo(event){
-    this.selecTodo=event;
-   
-    //console.log('list',this.selecTodo,this.displayDialog);
-    //event.preventDefault();
-    
-    }
 }

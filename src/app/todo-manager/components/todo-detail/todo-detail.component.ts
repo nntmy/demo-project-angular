@@ -9,6 +9,7 @@ import { Todo } from '../../todo';
 export class TodoDetailComponent implements OnInit {
 
 
+  
   @Input() selectTodo:Todo;
   
   constructor() { }
@@ -17,6 +18,8 @@ export class TodoDetailComponent implements OnInit {
 
   }
 
- 
+  onDialogHide() {
+    this.selectTodo = null;
+}
   
 }

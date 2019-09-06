@@ -8,13 +8,25 @@
   
 </div> -->
 
-<div class="task">
+<!-- <div class="task">
   <ul style="width: 50px">{{task.id}}</ul>
     <ul class="title">{{task.title}}</ul>
     <ul>{{task.date}}</ul>
     <ul>{{task.status? 'Complete':'Waitting' }}</ul>
     <ul>{{task.block}}</ul>
-    <!-- <ul><button class="btn btn-primary" (click)="editButtonClick(task.id)">Edit</button>
-      <button type="button" class="btn btn-danger" (click)="deleteButtonClick(task.id)">Delete</button></ul> -->
-  
+     
+  </div> -->
+<div class="ui-g car-item">
+  <div class="ui-g-12 ui-md-3">
+    <div class="ui-g-10 ui-sm-6">{{task?.title}}</div>
   </div>
+  <div class="ui-g-12 ui-md-3">
+    <div class="ui-g-10 ui-sm-6">{{task?.date}}</div>
+  </div>
+  <div class="ui-g-12 ui-md-3">
+    <div class="ui-g-10 ui-sm-6">{{task?.status}}</div>
+  </div>
+  <div class="ui-g-12 ui-md-3">
+    <div class="ui-g-10 ui-sm-6">{{task?.block}}</div>
+  </div>
+</div>

@@ -61,7 +61,7 @@ export class TodoAddComponent implements OnInit {
       status: [false, [Validators.required]],
       block: [""]
     });
-    console.log('frmaaaaaaaaaa',this.frmAdd);
+    //console.log('frmaaaaaaaaaa',this.frmAdd);
   }
   //lay todo theo id
   getOTodo(id: number) {

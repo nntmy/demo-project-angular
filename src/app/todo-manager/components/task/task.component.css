@@ -18,6 +18,8 @@
   
     padding-left: 10px;
   }
- .title{
+ 
+ .car-item {
+  text-align: center;
   word-break: break-all;
- }
+}

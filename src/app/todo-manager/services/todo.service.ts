@@ -2,7 +2,9 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http"; // import http
 import { Todo } from "./../todo";
 import { Observable, of } from "rxjs";
-import { catchError, map, tap } from 'rxjs/operators';
+//import { environment } from 'src/environments/environment';
+//import { catchError, map, tap } from 'rxjs/operators';
+
 Observable;
 Todo;
 HttpClient;

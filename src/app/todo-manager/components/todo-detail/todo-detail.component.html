@@ -1,5 +1,5 @@
 <p-dialog header="Details" [(visible)]="selectTodo " [responsive]="true" showEffect="fade" [modal]="true"
-  [style]="{width: '225px'}">
+  [style]="{width: '225px'}" (onAfterHide)="onDialogHide()">
   <div class="ui-g" *ngIf="selectTodo">
 
     <div class="ui-g-4">Title: </div>

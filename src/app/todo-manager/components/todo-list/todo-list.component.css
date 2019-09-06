@@ -37,11 +37,12 @@
   height: 48px;
   
   float: right;
+  padding-top: 10px;
  }
  /*==cột #post==*/
 #post {
-  width: 470px;
-  height: 48px;
+  width: 600px;
+  height: 50px;
   
   float: left;
 }

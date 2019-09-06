@@ -16,9 +16,10 @@ import { BtnEditDeComponent } from "../components/btn-edit-de/btn-edit-de.compon
 import { TodoDetailComponent } from '../components/todo-detail/todo-detail.component';
 //library
 //import {FormatParagraphComponent} from '../../../../projects/format-paragraph/src/lib/format-paragraph.component'
-import { FormatParagraphModule } from "format-paragraph";
+//import { FormatParagraphModule } from "format-paragraph";
 import { FormatTableButtonModule } from "format-table-button";
-import { MyButtonModule } from "my-button";
+//import { BtnLibraryComponent} from "format-table-button/lib/btn-library/btn-library.component";
+//import { MyButtonModule } from "my-button";
 //import { Ng2SearchPipeModule } from 'ng2-search-filter';
 //import { MatButtonModule, MatSidenavModule } from '@angular/material';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -28,6 +29,11 @@ import { MatIconModule, MatCommonModule } from "@angular/material";
 //PrimeNG
 import { ButtonModule } from "primeng/components/button/button";
 import {DialogModule} from 'primeng/dialog';
+import {CarouselModule} from 'primeng/carousel';
+import {OrderListModule} from 'primeng/orderlist';
+import {TableModule} from 'primeng/table';
+import {DataViewModule} from 'primeng/dataview';
+import {VirtualScrollerModule} from 'primeng/virtualscroller';
 //import {BrowserModule} from '@angular/platform-browser';
 //import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
 //import { MenuItem, DialogService } from "primeng/api"; //api
@@ -42,7 +48,8 @@ import { from } from "rxjs";
     FilterPipe,
     TaskComponent,
     BtnEditDeComponent,
-    TodoDetailComponent
+    TodoDetailComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -51,8 +58,8 @@ import { from } from "rxjs";
     HttpClientModule,
     //library
     FormatTableButtonModule,
-    FormatParagraphModule,
-    MyButtonModule,
+    //FormatParagraphModule,
+    //MyButtonModule,
     //material
     FormsModule,
     MatChipsModule,
@@ -67,7 +74,9 @@ import { from } from "rxjs";
     //AccordionModule,
     //BrowserModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    TableModule,
+    VirtualScrollerModule
    
   ],
   exports: [
