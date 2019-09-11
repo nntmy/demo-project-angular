@@ -20,6 +20,7 @@
         list 
         </lib-format-table-button>
 
+        
     </div>
 
 
@@ -44,7 +45,34 @@
 
 
 
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Call History</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th *ngFor="let column of callColumns"> {{ column }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let call of listCallsLog">
+                <td>{{ call.callId?.$value }}</td>
+                <td>{{ call.type?.$value }}</td>
+                <td>{{ call.uri?.$value }}</td>
+                <td>{{ call.displayName?.$value }}</td>
+                <td>{{ call.duration?.$value }}</td>
+                <td>{{ call.timestamp?.$value }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+</div>
 
 
 

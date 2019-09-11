@@ -28,6 +28,6 @@ export class ColorComponent implements OnInit {
   //nhan gia tri color tu html
   outColor(color) {
     this.colorChange.emit(color);
-    console.log(this.colorChange);
+    //console.log(this.colorChange);
   }
 }

@@ -1,15 +1,11 @@
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  Output,
-  EventEmitter,
-  Input
-} from "@angular/core";
+import { Component,  OnInit,Output,  EventEmitter} from "@angular/core";
 import { TodoService } from "../../services/todo.service";
 import { Subscription } from "rxjs";
 import { Todo } from "./../../todo";
 import { ThemePalette } from "@angular/material/core";
+import { NgxSoapService, Client, ISoapMethodResponse } from "ngx-soap";
+
+
 Todo;
 Subscription;
 TodoService;
@@ -19,17 +15,37 @@ TodoService;
   templateUrl: "./todo.component.html",
   styleUrls: ["./todo.component.css"]
 })
-export class TodoComponent implements OnInit, OnDestroy {
+export class TodoComponent implements OnInit {
   @Output("outColor") colorConnect = new EventEmitter<string>();
   sendColor: string;
   public colorDefault: string;
   public check: boolean = false;
 
+  //Soap
+  client: Client | any;
+  intA = 2;
+  intB = 3;
+  message: any;
+  callColumns = ['Call ID', 'Type', 'Uri', 'Display Name', 'Duration', 'Timestamp'];
+  listCallsLog = [];
+  //Soap
   //public clickValue:boolean = false ;
-  constructor(public todoSer: TodoService) {}
+  constructor(public todoSer: TodoService,private soap: NgxSoapService) {
+    // this.soap.createClient('assets/CallLog.wsdl').then(client => this.client = client);
+    // console.log('soapppppppp',this.client);
+  }
 
   ngOnInit() {
     this.colorDefault = "CE398C";
+    const options2 = {
+      endpoint: `https://10.250.161.37:8043/sopi/services/CallLog`
+    };
+    this.soap.createClient('./../assets/CallLog.wsdl', options2).then( client => {
+      client.addHttpHeader('Authorization', 'Basic ' + btoa('8410000@dev.team.com:1234'));
+      this.client = client;
+      console.log('client', this.client);
+      this.getCallsLog();
+    });
   }
 
   getColor(event: string) {
@@ -46,8 +62,26 @@ export class TodoComponent implements OnInit, OnDestroy {
     return styles;
   }
 
-  ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
+  sum() {
+    const body = {
+      intA: this.intA,
+      intB: this.intB
+    };
+    (<any>this.client).Add(body).subscribe((res: ISoapMethodResponse) => this.message = res.result.AddResult);
   }
+
+  getCallsLog() {
+    const body = {
+      opi: '8410000@dev.team.com'
+    };
+    console.log('22222');
+    console.log('3333333', this.client);
+    this.client.getIncomingCallLogs(body).subscribe(res => {
+      console.log('logs data', res.result.getCallLogsReturn.getCallLogsReturn);
+      this.listCallsLog = res.result.getCallLogsReturn.getCallLogsReturn;
+    }, err => {
+      console.log('eeeeeeeeeeeeeeeeeeee', err);
+    });
+  }
+  
 }

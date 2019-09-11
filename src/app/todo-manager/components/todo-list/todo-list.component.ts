@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { TodoService } from "../../services/todo.service";
 import { Subscription } from "rxjs";
 import { Todo } from "./../../todo";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-todo-list",
@@ -17,6 +17,7 @@ export class TodoListComponent implements OnInit {
   sendData: Todo;
   displayDialog=true;
   @Input() selecTodo: Todo;
+  
 
   // filTodo: Todo[];
 
@@ -37,16 +38,19 @@ export class TodoListComponent implements OnInit {
   //   );
   // }
   //
-  constructor(public todoSer: TodoService) {}
+  constructor(
+    public todoSer: TodoService,
+    public router:Router
+   ) {}
 
   ngOnInit() {
     this.showTodo();
     
-    //this.filTodo = this.todoArray;
+   
   }
   //show value data of server
   showTodo(): void {
-    this.sub = this.todoSer.getTodo().subscribe(
+    this.todoSer.getTodo().subscribe(
       data => {
         console.log(data);
         this.todoArray = data;
@@ -75,9 +79,9 @@ export class TodoListComponent implements OnInit {
     this.todoSer.deleteData(todo).subscribe();
   }
 
-  // editButtonClick(todoId: number) {
-  //   this._router.navigate(["/edit", todoId]);
-  // }
+  editButtonClick(todoId: number) {
+     this.router.navigate(["/edit", todoId]);
+  }
 
   // getIndex(id: number): number {
   //   let result = 0;

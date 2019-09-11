@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="opi.ims.nortelnetworks.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="opi.ims.nortelnetworks.com" xmlns:intf="opi.ims.nortelnetworks.com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.3
+Built on Oct 05, 2005 (05:23:37 EDT)-->
+ <wsdl:types>
+  <schema targetNamespace="opi.ims.nortelnetworks.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType abstract="true" name="ProvisionableEntity">
+    <sequence/>
+   </complexType>
+   <complexType name="CallLog">
+    <complexContent>
+     <extension base="impl:ProvisionableEntity">
+      <sequence>
+       <element name="callId" nillable="true" type="soapenc:string"/>
+       <element name="displayName" nillable="true" type="soapenc:string"/>
+       <element name="duration" type="xsd:long"/>
+       <element name="timestamp" type="xsd:long"/>
+       <element name="type" nillable="true" type="soapenc:string"/>
+       <element name="uri" nillable="true" type="soapenc:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOfCallLog">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="impl:CallLog[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ProvisionException">
+    <sequence>
+     <element name="defaultMessage" nillable="true" type="soapenc:string"/>
+     <element name="errorCode" nillable="true" type="soapenc:string"/>
+     <element name="message" nillable="true" type="soapenc:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_soapenc_string">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="soapenc:string[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getOutgoingCallLogsRequest">
+
+      <wsdl:part name="in0" type="soapenc:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="ProvisionException">
+
+      <wsdl:part name="fault" type="impl:ProvisionException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCallLogsResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCallLogsRequest">
+
+      <wsdl:part name="in0" type="soapenc:string"/>
+
+      <wsdl:part name="in1" type="impl:ArrayOf_soapenc_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIncomingCallLogsRequest">
+
+      <wsdl:part name="in0" type="soapenc:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCallLogsResponse">
+
+      <wsdl:part name="getCallLogsReturn" type="impl:ArrayOfCallLog"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOutgoingCallLogsResponse">
+
+      <wsdl:part name="getOutgoingCallLogsReturn" type="impl:ArrayOfCallLog"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCallLogsRequest">
+
+      <wsdl:part name="in0" type="soapenc:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIncomingCallLogsResponse">
+
+      <wsdl:part name="getIncomingCallLogsReturn" type="impl:ArrayOfCallLog"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CallLogMgr">
+
+      <wsdl:operation name="getCallLogs" parameterOrder="in0">
+
+         <wsdl:input message="impl:getCallLogsRequest" name="getCallLogsRequest"/>
+
+         <wsdl:output message="impl:getCallLogsResponse" name="getCallLogsResponse"/>
+
+         <wsdl:fault message="impl:ProvisionException" name="ProvisionException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOutgoingCallLogs" parameterOrder="in0">
+
+         <wsdl:input message="impl:getOutgoingCallLogsRequest" name="getOutgoingCallLogsRequest"/>
+
+         <wsdl:output message="impl:getOutgoingCallLogsResponse" name="getOutgoingCallLogsResponse"/>
+
+         <wsdl:fault message="impl:ProvisionException" name="ProvisionException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCallLogs" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:deleteCallLogsRequest" name="deleteCallLogsRequest"/>
+
+         <wsdl:output message="impl:deleteCallLogsResponse" name="deleteCallLogsResponse"/>
+
+         <wsdl:fault message="impl:ProvisionException" name="ProvisionException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getIncomingCallLogs" parameterOrder="in0">
+
+         <wsdl:input message="impl:getIncomingCallLogsRequest" name="getIncomingCallLogsRequest"/>
+
+         <wsdl:output message="impl:getIncomingCallLogsResponse" name="getIncomingCallLogsResponse"/>
+
+         <wsdl:fault message="impl:ProvisionException" name="ProvisionException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CallLog" type="impl:CallLogMgr">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getCallLogs">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCallLogsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="opi.ims.nortelnetworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCallLogsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="opi.ims.nortelnetworks.com" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ProvisionException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ProvisionException" namespace="opi.ims.nortelnetworks.com" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOutgoingCallLogs">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOutgoingCallLogsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="opi.ims.nortelnetworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOutgoingCallLogsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="opi.ims.nortelnetworks.com" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ProvisionException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ProvisionException" namespace="opi.ims.nortelnetworks.com" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCallLogs">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteCallLogsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="opi.ims.nortelnetworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteCallLogsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="opi.ims.nortelnetworks.com" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ProvisionException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ProvisionException" namespace="opi.ims.nortelnetworks.com" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getIncomingCallLogs">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getIncomingCallLogsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="opi.ims.nortelnetworks.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getIncomingCallLogsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="opi.ims.nortelnetworks.com" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="ProvisionException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="ProvisionException" namespace="opi.ims.nortelnetworks.com" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CallLogMgrService">
+
+      <wsdl:port binding="impl:CallLog" name="CallLog">
+
+         <wsdlsoap:address location="http://localhost:80/sopi/services/CallLog"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

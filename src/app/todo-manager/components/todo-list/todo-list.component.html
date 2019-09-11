@@ -23,7 +23,7 @@
 </div> -->
 <!-- 
 <app-todo-detail [selectTodo]="selecTodo"></app-todo-detail> -->
-
+<!-- 
 <p-virtualScroller [value]="todoArray" scrollHeight="200px" [itemSize]="50">
   <p-header>
     <div class="ui-g" style="width: 600px">
@@ -43,19 +43,22 @@
   </p-header>
   <ng-template let-todo pTemplate="item" let-i="index">
     <div id="post">
-      <!-- <app-task [task]="todo" [style.color]="todo.status? 'green' : 'red'"></app-task> -->
-      <lib-table-data [title]="todo.title" [date]="todo.date" [status]="todo.status" [block]="todo.block"
-        [style.color]="todo.status ? 'green' : 'red'"></lib-table-data>
+      <app-task [task]="todo" [style.color]="todo.status? 'green' : 'red'"></app-task>
+     <lib-table-data [title]="todo.title" [date]="todo.date" [status]="todo.status" [block]="todo.block"
+        [style.color]="todo.status ? 'green' : 'red'"></lib-table-data> 
+         
     </div>
     <div id="sidebar">
-      <!-- <app-btn-edit-de [task]="todo" [arr]="todoArray" (deleteButtonClick)="getArrChange($event)"
+       <app-btn-edit-de [task]="todo" [arr]="todoArray" (deleteButtonClick)="getArrChange($event)"
         (selectTodo)="selectedTodo($event)"></app-btn-edit-de> -->
-      <lib-btn-edit routerLink="/edit/{{ todo.id }}"></lib-btn-edit>
-      <lib-btn-delete (click)="deleteClick(todo)" (clickButton)="getData($event)"></lib-btn-delete>
-      <lib-btn-dialog (click)="getData(todo)"></lib-btn-dialog>
-    </div>
+     
+    <!-- </div>
   </ng-template>
 </p-virtualScroller>
-<lib-show-dialog [titleDialog]="sendData?.title"></lib-show-dialog>
-<p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
+<lib-show-dialog [titleDialog]="sendData?.title" [dateDialog]="sendData?.date" [statusDialog]="sendData?.status" [blockDialog]="sendData?.block"></lib-show-dialog>
+<p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p> --> 
 
+<lib-table-data [listTodo]="todoArray" (sendTodo)="deleteClick($event)" (sendId)="editButtonClick($event)" (sendDialog)="getData($event)">
+ 
+</lib-table-data>
+<lib-show-dialog [titleDialog]="sendData?.title" [dateDialog]="sendData?.date" [statusDialog]="sendData?.status" [blockDialog]="sendData?.block"></lib-show-dialog>

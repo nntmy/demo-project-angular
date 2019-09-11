@@ -32,12 +32,18 @@ import {DialogModule} from 'primeng/dialog';
 import {CarouselModule} from 'primeng/carousel';
 import {OrderListModule} from 'primeng/orderlist';
 import {TableModule} from 'primeng/table';
+import {SliderModule} from 'primeng/slider';
 import {DataViewModule} from 'primeng/dataview';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
+import {DropdownModule} from 'primeng/dropdown';
+import {MultiSelectModule} from 'primeng/multiselect';
 //import {BrowserModule} from '@angular/platform-browser';
 //import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
 //import { MenuItem, DialogService } from "primeng/api"; //api
 import { from } from "rxjs";
+
+//Soap
+import { NgxSoapModule } from 'ngx-soap';
 @NgModule({
   declarations: [
     TodoComponent,
@@ -76,7 +82,12 @@ import { from } from "rxjs";
     ButtonModule,
     DialogModule,
     TableModule,
-    VirtualScrollerModule
+    VirtualScrollerModule,
+    SliderModule,
+    DropdownModule,
+    MultiSelectModule,
+    //Soap
+    NgxSoapModule
    
   ],
   exports: [
