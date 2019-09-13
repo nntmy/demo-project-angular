@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 77.0.3865 (Windows 10.0.0)" package="" timestamp="2019-09-13T10:42:06" id="0" hostname="nttmy" tests="11" errors="0" failures="0" time="1.999">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.75 Safari/537.36"/>
+  </properties>
+  <testcase name="AppComponent should create the app" time="0.097" classname="Chrome_77_0_3865_(Windows_10_0_0).AppComponent"/>
+  <testcase name="ColorComponent should create" time="0.031" classname="Chrome_77_0_3865_(Windows_10_0_0).ColorComponent"/>
+  <testcase name="BtnEditDeComponent should create" time="0.021" classname="Chrome_77_0_3865_(Windows_10_0_0).BtnEditDeComponent"/>
+  <testcase name="TaskComponent should create" time="0.018" classname="Chrome_77_0_3865_(Windows_10_0_0).TaskComponent"/>
+  <testcase name="TodoAddComponent should create" time="0.091" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoAddComponent"/>
+  <testcase name="TodoDetailComponent should create" time="0.08" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoDetailComponent"/>
+  <testcase name="TodoListComponent should create" time="0.548" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoListComponent"/>
+  <testcase name="TodoComponent should create" time="0.551" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoComponent"/>
+  <testcase name="SearchComponent should create" time="0.559" classname="Chrome_77_0_3865_(Windows_10_0_0).SearchComponent"/>
+  <testcase name="TodoService should return expected heroes (HttpClient called once)" time="0.001" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoService"/>
+  <testcase name="TodoService should add expected heroes " time="0.002" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoService"/>
+  <system-out>
+    <![CDATA[Chrome 77.0.3865 (Windows 10.0.0) LOG: 'task', undefined
+,Chrome 77.0.3865 (Windows 10.0.0) LOG: 'loggggggggggggggggggggggggggg'
+,Chrome 77.0.3865 (Windows 10.0.0) LOG: 'createClient', Object{endpoint: 'https://10.250.161.37:8043/sopi/services/CallLog', httpClient: HttpClient{handler: HttpInterceptingHandler{backend: ..., injector: ..., chain: ...}}}
+,Chrome 77.0.3865 (Windows 10.0.0) LOG: 'Getting from cache', './../assets/CallLog.wsdl'
+,Chrome 77.0.3865 (Windows 10.0.0) LOG: 'Reading url: %s', './../assets/CallLog.wsdl'
+,Chrome 77.0.3865 (Windows 10.0.0) LOG: 'bgcolor', undefined
+,Chrome 77.0.3865 (Windows 10.0.0) LOG: 'kkkkkkkkkkkkkkkkkkkkk', [Object{id: 1, title: 'A', date: '2019-09-12', status: true, block: 'A'}, Object{id: 2, title: 'B', date: '2019-09-12', status: true, block: 'B'}], 2
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>

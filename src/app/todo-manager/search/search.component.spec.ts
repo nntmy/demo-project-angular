@@ -1,17 +1,34 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+//module
+import { FormsModule } from "@angular/forms";
+import { RouterTestingModule } from "@angular/router/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+//component
+import { SearchComponent } from "./search.component";
+//module
+import { FormatTableButtonModule } from "format-table-button";
 
-import { SearchComponent } from './search.component';
+//service
+import { TodoService } from "../services/todo.service";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
-describe('SearchComponent', () => {
+describe("SearchComponent", () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [SearchComponent],
+      imports: [
+        FormatTableButtonModule,
+        RouterTestingModule,
+        HttpClientTestingModule,
+        FormsModule
+      ],
+      providers: [TodoService],
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SearchComponent);
@@ -19,7 +36,7 @@ describe('SearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

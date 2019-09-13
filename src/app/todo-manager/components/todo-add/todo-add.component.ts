@@ -1,11 +1,6 @@
 import { TodoService } from "./../../services/todo.service";
 import { Component, OnInit } from "@angular/core";
-import {
-  FormControl,
-  FormGroup,
-  FormBuilder,
-  Validators
-} from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Todo } from "./../../todo";
 import { Subscription } from "rxjs";
 import { Router, ActivatedRoute } from "@angular/router";
@@ -86,17 +81,16 @@ export class TodoAddComponent implements OnInit {
   addFormToOTodo() {
     this.oTodo.title = this.frmAdd.value.title;
     this.oTodo.date = this.frmAdd.value.date;
-    this.oTodo.status=this.frmAdd.value.status;
+    this.oTodo.status = this.frmAdd.value.status;
     // if (this.frmAdd.value.status == "true") {
-      
+
     //   console.log('asasssssssssssssssssss',this.oTodo.block);
     //   return (this.oTodo.status = true);
-          
+
     // } else {
     //   return (this.oTodo.status = false);
     // }
-    this.oTodo.block = this.frmAdd.value.block; 
-    
+    this.oTodo.block = this.frmAdd.value.block;
   }
   onSubmit() {
     //console.log(this.frmAdd.value.status);

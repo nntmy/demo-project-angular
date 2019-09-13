@@ -1,10 +1,9 @@
-import { Component,  OnInit,Output,  EventEmitter} from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { TodoService } from "../../services/todo.service";
 import { Subscription } from "rxjs";
 import { Todo } from "./../../todo";
-import { ThemePalette } from "@angular/material/core";
-import { NgxSoapService, Client, ISoapMethodResponse } from "ngx-soap";
 
+import { NgxSoapService, Client } from "ngx-soap";
 
 Todo;
 Subscription;
@@ -23,14 +22,20 @@ export class TodoComponent implements OnInit {
 
   //Soap
   client: Client | any;
-  intA = 2;
-  intB = 3;
+
   message: any;
-  callColumns = ['Call ID', 'Type', 'Uri', 'Display Name', 'Duration', 'Timestamp'];
+  callColumns = [
+    "Call ID",
+    "Type",
+    "Uri",
+    "Display Name",
+    "Duration",
+    "Timestamp"
+  ];
   listCallsLog = [];
   //Soap
   //public clickValue:boolean = false ;
-  constructor(public todoSer: TodoService,private soap: NgxSoapService) {
+  constructor(public todoSer: TodoService, private soap: NgxSoapService) {
     // this.soap.createClient('assets/CallLog.wsdl').then(client => this.client = client);
     // console.log('soapppppppp',this.client);
   }
@@ -40,12 +45,17 @@ export class TodoComponent implements OnInit {
     const options2 = {
       endpoint: `https://10.250.161.37:8043/sopi/services/CallLog`
     };
-    this.soap.createClient('./../assets/CallLog.wsdl', options2).then( client => {
-      client.addHttpHeader('Authorization', 'Basic ' + btoa('8410000@dev.team.com:1234'));
-      this.client = client;
-      console.log('client', this.client);
-      this.getCallsLog();
-    });
+    this.soap
+      .createClient("./../assets/CallLog.wsdl", options2)
+      .then(client => {
+        client.addHttpHeader(
+          "Authorization",
+          "Basic " + btoa("8410000@dev.team.com:1234")
+        );
+        this.client = client;
+        console.log("client", this.client);
+        this.getCallsLog();
+      });
   }
 
   getColor(event: string) {
@@ -62,26 +72,23 @@ export class TodoComponent implements OnInit {
     return styles;
   }
 
-  sum() {
-    const body = {
-      intA: this.intA,
-      intB: this.intB
-    };
-    (<any>this.client).Add(body).subscribe((res: ISoapMethodResponse) => this.message = res.result.AddResult);
-  }
-
   getCallsLog() {
     const body = {
-      opi: '8410000@dev.team.com'
+      opi: "8410000@dev.team.com"
     };
-    console.log('22222');
-    console.log('3333333', this.client);
-    this.client.getIncomingCallLogs(body).subscribe(res => {
-      console.log('logs data', res.result.getCallLogsReturn.getCallLogsReturn);
-      this.listCallsLog = res.result.getCallLogsReturn.getCallLogsReturn;
-    }, err => {
-      console.log('eeeeeeeeeeeeeeeeeeee', err);
-    });
+    console.log("22222");
+    console.log("3333333", this.client);
+    this.client.getIncomingCallLogs(body).subscribe(
+      res => {
+        console.log(
+          "logs data",
+          res.result.getCallLogsReturn.getCallLogsReturn
+        );
+        this.listCallsLog = res.result.getCallLogsReturn.getCallLogsReturn;
+      },
+      err => {
+        console.log("eeeeeeeeeeeeeeeeeeee", err);
+      }
+    );
   }
-  
 }

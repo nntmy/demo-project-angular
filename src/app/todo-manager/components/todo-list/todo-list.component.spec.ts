@@ -1,17 +1,28 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+//module
+import { FormatTableButtonModule } from "format-table-button";
+import { RouterTestingModule } from "@angular/router/testing";
 
-import { TodoListComponent } from './todo-list.component';
+//component
+import { TodoListComponent } from "./todo-list.component";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
-describe('TodoListComponent', () => {
+describe("TodoListComponent", () => {
   let component: TodoListComponent;
   let fixture: ComponentFixture<TodoListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoListComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [TodoListComponent],
+      imports: [
+        FormatTableButtonModule,
+        RouterTestingModule,
+        HttpClientTestingModule
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TodoListComponent);
@@ -19,7 +30,7 @@ describe('TodoListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

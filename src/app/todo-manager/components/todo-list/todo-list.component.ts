@@ -56,7 +56,7 @@ export class TodoListComponent implements OnInit {
         this.todoArray = data;
       },
       error => {
-        console.log(`error`);
+        this.todoSer.handleError(error);
       }
     );
   }

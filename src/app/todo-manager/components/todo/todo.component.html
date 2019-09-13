@@ -1,79 +1,94 @@
 <div class="container" [style.margin-top.px]="50">
-
   <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-
     <div class="panel " [ngStyle]="setMyStyles()">
       <div class="panel-heading">
         <h2 class="panel-title">To do list</h2>
       </div>
     </div>
-    <hr>
+    <hr />
     <!--  -->
 
-    <h3> Buttons Material</h3>
+    <h3>Buttons Material</h3>
     <div class="example-button-row">
-
-      <button mat-flat-button color="primary" routerLink="/todoList">List</button>
+      <button mat-flat-button color="primary" routerLink="/todoList">
+        List
+      </button>
       <button mat-flat-button color="accent" routerLink="/add">Create</button>
-      <button mat-flat-button color="warn" (click)="check = !check ">Color</button>
-      <lib-format-table-button [bgColor]="sendColor" routerLink="/todoList" [style.background-color]="sendColor" >
-        list 
-        </lib-format-table-button>
-
-        
+      <button mat-flat-button color="warn" (click)="check = !check">
+        Color
+      </button>
+      <lib-format-table-button
+        [bgColor]="sendColor"
+        routerLink="/todoList"
+        [style.background-color]="sendColor"
+      >
+        list
+      </lib-format-table-button>
     </div>
-
 
     <h3>PrimeNG Buttons</h3>
     <button pButton type="button" label="Primary"></button>
-    <button pButton type="button" label="Secondary" class="ui-button-secondary"></button>
-    <button pButton type="button" label="Success" class="ui-button-success"></button>
+    <button
+      pButton
+      type="button"
+      label="Secondary"
+      class="ui-button-secondary"
+    ></button>
+    <button
+      pButton
+      type="button"
+      label="Success"
+      class="ui-button-success"
+    ></button>
     <button pButton type="button" label="Info" class="ui-button-info"></button>
-    <button pButton type="button" label="Warning" class="ui-button-warning"></button>
-    <button pButton type="button" label="Danger" class="ui-button-danger"></button>
+    <button
+      pButton
+      type="button"
+      label="Warning"
+      class="ui-button-warning"
+    ></button>
+    <button
+      pButton
+      type="button"
+      label="Danger"
+      class="ui-button-danger"
+    ></button>
 
-    <hr>
+    <hr />
     <app-color (outColor)="getColor($event)" *ngIf="check"></app-color>
-  
-    <hr>
+
+    <hr />
     <app-search></app-search>
-<hr>
+    <hr />
     <router-outlet></router-outlet>
   </div>
-
 </div>
-
-
 
 <div class="container-fluid">
   <div class="row">
     <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">Call History</h3>
-        </div>
-        <div class="panel-body">
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th *ngFor="let column of callColumns"> {{ column }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let call of listCallsLog">
-                <td>{{ call.callId?.$value }}</td>
-                <td>{{ call.type?.$value }}</td>
-                <td>{{ call.uri?.$value }}</td>
-                <td>{{ call.displayName?.$value }}</td>
-                <td>{{ call.duration?.$value }}</td>
-                <td>{{ call.timestamp?.$value }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="panel-heading">
+        <h3 class="panel-title">Call History</h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th *ngFor="let column of callColumns">{{ column }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let call of listCallsLog">
+              <td>{{ call.callId?.$value }}</td>
+              <td>{{ call.type?.$value }}</td>
+              <td>{{ call.uri?.$value }}</td>
+              <td>{{ call.displayName?.$value }}</td>
+              <td>{{ call.duration?.$value }}</td>
+              <td>{{ call.timestamp?.$value }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-

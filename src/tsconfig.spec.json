@@ -12,6 +12,7 @@
     "polyfills.ts"
   ],
   "include": [
+    //"../*.spec.ts", // your spec file location parent of src or ../yourpath/
     "**/*.spec.ts",
     "**/*.d.ts"
   ]

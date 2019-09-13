@@ -1,17 +1,29 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+//module
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { TodoAddComponent } from './todo-add.component';
+import { RouterTestingModule } from "@angular/router/testing";
+//component
+import { TodoAddComponent } from "./todo-add.component";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
-describe('TodoAddComponent', () => {
+describe("TodoAddComponent", () => {
   let component: TodoAddComponent;
   let fixture: ComponentFixture<TodoAddComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoAddComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [TodoAddComponent],
+      imports: [
+        FormsModule,
+        RouterTestingModule,
+        HttpClientTestingModule,
+        ReactiveFormsModule
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TodoAddComponent);
@@ -19,7 +31,7 @@ describe('TodoAddComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

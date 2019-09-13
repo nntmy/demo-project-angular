@@ -2,9 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { TodoService } from "../services/todo.service";
 import { Subscription, Subject, Observable } from "rxjs";
 import { Todo } from "../todo";
-import { FilterPipe } from "../filter.pipe";
+
 import { distinctUntilChanged, debounceTime, switchMap } from "rxjs/operators";
-FilterPipe;
+
 
 @Component({
   selector: "app-search",
@@ -60,7 +60,7 @@ export class SearchComponent implements OnInit {
         this.todoArray = data;
       },
       error => {
-        console.log(`error`);
+        this.todoSer.handleError(error);
       }
     );
   }

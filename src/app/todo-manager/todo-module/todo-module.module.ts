@@ -10,40 +10,32 @@ import { TodoListComponent } from "../components/todo-list/todo-list.component";
 import { TodoAddComponent } from "../components/todo-add/todo-add.component";
 import { SearchComponent } from "../search/search.component";
 import { ColorComponent } from "../color/color.component";
-import { FilterPipe } from "../filter.pipe";
+
 import { TaskComponent } from "../components/task/task.component";
 import { BtnEditDeComponent } from "../components/btn-edit-de/btn-edit-de.component";
-import { TodoDetailComponent } from '../components/todo-detail/todo-detail.component';
+import { TodoDetailComponent } from "../components/todo-detail/todo-detail.component";
+
+import { HttpClient } from "@angular/common/http";
+
 //library
-//import {FormatParagraphComponent} from '../../../../projects/format-paragraph/src/lib/format-paragraph.component'
-//import { FormatParagraphModule } from "format-paragraph";
+
 import { FormatTableButtonModule } from "format-table-button";
-//import { BtnLibraryComponent} from "format-table-button/lib/btn-library/btn-library.component";
-//import { MyButtonModule } from "my-button";
-//import { Ng2SearchPipeModule } from 'ng2-search-filter';
-//import { MatButtonModule, MatSidenavModule } from '@angular/material';
+//material
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule, MatCommonModule } from "@angular/material";
 //PrimeNG
 import { ButtonModule } from "primeng/components/button/button";
-import {DialogModule} from 'primeng/dialog';
-import {CarouselModule} from 'primeng/carousel';
-import {OrderListModule} from 'primeng/orderlist';
-import {TableModule} from 'primeng/table';
-import {SliderModule} from 'primeng/slider';
-import {DataViewModule} from 'primeng/dataview';
-import {VirtualScrollerModule} from 'primeng/virtualscroller';
-import {DropdownModule} from 'primeng/dropdown';
-import {MultiSelectModule} from 'primeng/multiselect';
-//import {BrowserModule} from '@angular/platform-browser';
-//import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
-//import { MenuItem, DialogService } from "primeng/api"; //api
-import { from } from "rxjs";
+import { DialogModule } from "primeng/dialog";
+import { TableModule } from "primeng/table";
+import { SliderModule } from "primeng/slider";
+import { VirtualScrollerModule } from "primeng/virtualscroller";
+import { DropdownModule } from "primeng/dropdown";
+import { MultiSelectModule } from "primeng/multiselect";
 
 //Soap
-import { NgxSoapModule } from 'ngx-soap';
+import { NgxSoapModule } from "ngx-soap";
 @NgModule({
   declarations: [
     TodoComponent,
@@ -51,11 +43,10 @@ import { NgxSoapModule } from 'ngx-soap';
     TodoAddComponent, //nhung todo add vao todo
     ColorComponent,
     SearchComponent,
-    FilterPipe,
+
     TaskComponent,
     BtnEditDeComponent,
-    TodoDetailComponent,
-    
+    TodoDetailComponent
   ],
   imports: [
     CommonModule,
@@ -88,10 +79,10 @@ import { NgxSoapModule } from 'ngx-soap';
     MultiSelectModule,
     //Soap
     NgxSoapModule
-   
   ],
   exports: [
     TodoComponent //export de module cha co the goi va su dung <app-todo>
-  ]
+  ],
+  providers: [HttpClient]
 })
 export class TodoModuleModule {}
