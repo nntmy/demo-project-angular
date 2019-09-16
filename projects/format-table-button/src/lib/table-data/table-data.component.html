@@ -1,59 +1,148 @@
-<!-- <p-table #dt [columns]="cols" [value]="cars" [paginator]="true" [rows]="10">
+<h3>Row Editing</h3>
+<p-table
+  #dt
+  [columns]="cols"
+  [value]="listTodo"
+  dataKey="id"
+  editMode="row"
+  [(selection)]="selectedRow"
+>
+  <!-- ---------------Search Golbal---------------------------- -->
   <ng-template pTemplate="caption">
-      <div style="text-align: right">        
-          <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-          <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+    <div style="display: flex">
+      <div style="text-align: left;padding-right: 400px">
+        <p-dropdown
+          [options]="selectedRow"
+          [(ngModel)]="selectedRow"
+        ></p-dropdown>
       </div>
+      <div style="text-align: right">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input
+          type="text"
+          pInputText
+          size="50"
+          placeholder="Global Filter"
+          (input)="dt.filterGlobal($event.target.value, 'contains')"
+          style="width:auto; margin-right: 10px;padding:5px 0 5px 0;"
+        />
+        <p-button icon="pi pi-filter" (onClick)="show = !show"> </p-button>
+      </div>
+    </div>
   </ng-template>
+  <!-- ------------------------hearder--------------------------------------------- -->
   <ng-template pTemplate="header" let-columns>
-      <tr>
-          <th *ngFor="let col of columns">
-              {{col.header}}
-          </th>
-      </tr>
-      <tr>
-          <th *ngFor="let col of columns" [ngSwitch]="col.field">
-              <input *ngSwitchCase="'vin'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-              <div *ngSwitchCase="'year'">
-                  Value < {{yearFilter}}
-                  <i class="fa fa-close" (click)="yearFilter=null;dt.filter(null, col.field, col.filterMatchMode)" style="cursor:pointer" *ngIf="yearFilter"></i>
-                  <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="yearFilter" [min]="1970" [max]="2010" (onChange)="onYearChange($event, dt)"></p-slider>
-              </div>
-              <p-dropdown *ngSwitchCase="'brand'" [options]="brands" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
-              <p-multiSelect *ngSwitchCase="'color'" [options]="colors" defaultLabel="All Colors" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
-          </th>
-      </tr>
+    <tr>
+      <th style="width: 3em">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th
+        *ngFor="let col of columns"
+        [pSortableColumn]="col.field"
+        [ngSwitch]="col.field"
+      >
+        <!-- <p-tableHeaderCheckbox *ngSwitchCase="'check'"></p-tableHeaderCheckbox> -->
+        {{ col.header }}
+        <p-sortIcon *ngSwitchCase="true" [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+    <!-- -----------------------------dropdow,calender,search----------------------------- -->
+    <tr *ngIf="show">
+      <th></th>
+      <th *ngFor="let col of columns" [ngSwitch]="col.field">
+        <!-- <p-multiSelect
+                *ngSwitchCase="'title'"
+                [options]="title"
+                [(ngModel)]="selectedTitle"
+                [panelStyle]="{ minWidth: '12em' }"
+              ></p-multiSelect> -->
+        <input
+          *ngSwitchCase="'title'"
+          pInputText
+          type="text"
+          (input)="
+            dt.filter($event.target.value, col.field, col.filterMatchMode)
+          "
+          style="width:auto; padding:5px 0 5px 0;"
+        />
+        <p-calendar
+          *ngSwitchCase="'date'"
+          [(ngModel)]="date"
+          [showIcon]="true"
+        ></p-calendar>
+        <p-multiSelect
+          *ngSwitchCase="'status'"
+          [options]="status"
+          [(ngModel)]="selectedStatus"
+          [panelStyle]="{ minWidth: '12em' }"
+          defaultLabel="All Status"
+          (onChange)="dt.filter($event.value, col.field, 'in')"
+        ></p-multiSelect>
+        <input
+          *ngSwitchCase="'block'"
+          pInputText
+          type="text"
+          (input)="
+            dt.filter($event.target.value, col.field, col.filterMatchMode)
+          "
+          style="width:auto; padding:5px 0 5px 0;"
+        />
+      </th>
+    </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-rowData let-columns="columns">
-      <tr [pSelectableRow]="rowData">
-          <td *ngFor="let col of columns">
-              {{rowData[col.field]}}
-          </td>
-      </tr>
+  <!-- --------------------data----------------------------- -->
+  <ng-template
+    pTemplate="body"
+    let-rowData
+    let-editing="editing"
+    let-ri="rowIndex"
+  >
+    <tr [pEditableRow]="rowData">
+      <td>
+        <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+      </td>
+      <td>
+        {{ rowData.title }}
+      </td>
+      <td>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="date" [(ngModel)]="rowData.date" required />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ rowData.date }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-dropdown
+              [options]="status"
+              [(ngModel)]="rowData.status"
+              [style]="{ width: '100%' }"
+            ></p-dropdown>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ rowData.status ? "Complete" : "Watting" }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input pInputText type="text" [(ngModel)]="rowData.block" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ rowData.block }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td>
+        <lib-btn-edit (click)="sendId(rowData.id)"></lib-btn-edit>
+        <lib-btn-delete (click)="sendTask(rowData)"></lib-btn-delete>
+        <lib-btn-dialog (click)="sendDialog(rowData)"></lib-btn-dialog>
+      </td>
+    </tr>
   </ng-template>
-</p-table> -->
-
-<p-table [value]="listTodo">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Status</th>
-            <th>Block</th>
-            <th></th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-task>
-        <tr [style.color]="task.status ? 'green' : 'red'" >
-            <td>{{task.title}}</td>
-            <td>{{task.date}}</td>
-            <td>{{task.status ? 'Complete' : 'Watting'}}</td>
-            <td>{{task.block}}</td>
-            <td>
-                <lib-btn-delete (click)="sendTask(task)"></lib-btn-delete>
-                <lib-btn-edit (click)="sendId(task.id)"></lib-btn-edit>
-                <lib-btn-dialog (click)="sendDialog(task)"></lib-btn-dialog>
-           </td>
-        </tr>
-    </ng-template>
-  </p-table>
+</p-table>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input ,Output,EventEmitter} from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Todo } from "../todo";
 import { SelectItem } from "primeng/components/common/selectitem";
 @Component({
@@ -7,28 +7,50 @@ import { SelectItem } from "primeng/components/common/selectitem";
   styleUrls: ["./table-data.component.css"]
 })
 export class TableDataComponent implements OnInit {
-  // @Input() title: string;
-  // @Input() date: string;
-  // @Input() status: boolean;
-  // @Input() block: string;
-
   @Input() listTodo: Todo[];
 
-  @Output('sendTodo') todo = new EventEmitter<Todo>();
-  @Output('sendId') id = new EventEmitter<number>();
-  @Output('sendDialog') dialog = new EventEmitter<Todo>();
+  @Output("sendTodo") todo = new EventEmitter<Todo>();
+  @Output("sendId") id = new EventEmitter<number>();
+  @Output("sendDialog") dialog = new EventEmitter<Todo>();
+
+  todoArray: Todo[];
+  cols: any[];
+  first: number = 0;
+  status: SelectItem[];
+  title: SelectItem[];
+  clonedCars: { [s: string]: Todo } = {};
+  item: string;
+
+  selectedStatus: string[] = [];
+  selectedTitle: string[] = [];
+  selectedRow: SelectItem[];
+
+  date: Date;
+
+  show: boolean = false;
   constructor() {}
 
   ngOnInit() {
-    }
-    sendTask(task:Todo){
-    this.todo.emit(task);
+    this.cols = [
+      { field: "title", header: "Title" },
+      { field: "date", header: "Date" },
+      { field: "status", header: "Status" },
+      { field: "block", header: "Block" },
+      { field: "button", header: "" }
+    ];
 
-    }
-    sendId(id:number){
-      this.id.emit(id);
-    }
-    sendDialog(dialog:Todo){
-      this.dialog.emit(dialog);
-    }
+    this.status = [
+      { label: "Complete", value: true },
+      { label: "Watting", value: false }
+    ];
+  }
+  sendTask(task: Todo) {
+    this.todo.emit(task);
+  }
+  sendId(id: number) {
+    this.id.emit(id);
+  }
+  sendDialog(dialog: Todo) {
+    this.dialog.emit(dialog);
+  }
 }
