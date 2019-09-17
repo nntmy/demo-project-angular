@@ -1,19 +1,48 @@
-<p-dialog header="Details" [(visible)]="titleDialog" [responsive]="true" showEffect="fade" [modal]="true"
-  [style]="{ width: '225px' }">
-  <div class="ui-g" >
-
-    <div class="ui-g-4">Title: </div>
-    <div class="ui-g-8">{{titleDialog}}</div>
-
-    <div class="ui-g-4" style="color: rosybrown">Date: </div>
-    <div class="ui-g-8">{{dateDialog}}</div>
-
-    <div class="ui-g-4">Status: </div>
-    <div class="ui-g-8">{{statusDialog}}</div>
-
-    <div class="ui-g-4">Block: </div>
-    <div class="ui-g-8">{{blockDialog}}</div>
-      
-      
+<!-- -------------------------------------dialog----------------------- -->
+<p-dialog
+  header="Details"
+  [(visible)]="titleDialog"
+  [responsive]="true"
+  showEffect="fade"
+  [modal]="true"
+  [style]="{ width: '225px', 'text-align': 'center' }"
+>
+  <div class="ui-g">
+    <div
+      class="ui-g-4"
+      style="color: #ec6666;text-transform: uppercase;text-align: left"
+    >
+      Title:
     </div>
+    <div class="ui-g-8">
+      <strong>{{ titleDialog }}</strong>
+    </div>
+    <div
+      class="ui-g-4"
+      style="color: #ec6666;text-transform: uppercase;text-align: left"
+    >
+      Date:
+    </div>
+    <div class="ui-g-8">
+      <strong>{{ dateDialog }}</strong>
+    </div>
+    <div
+      class="ui-g-4"
+      style="color: #ec6666;text-transform: uppercase;text-align: left"
+    >
+      Status:
+    </div>
+    <div class="ui-g-8">
+      <strong>{{ statusDialog }}</strong>
+    </div>
+    <div
+      class="ui-g-4"
+      style="color: #ec6666;text-transform: uppercase;text-align: left"
+    >
+      Block:
+    </div>
+    <div class="ui-g-8">
+      <strong>{{ blockDialog }}</strong>
+    </div>
+  </div>
 </p-dialog>

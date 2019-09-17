@@ -1,4 +1,4 @@
-<h3>Row Editing</h3>
+<h3>Todo List</h3>
 <p-table
   #dt
   [columns]="cols"
@@ -6,17 +6,23 @@
   dataKey="id"
   editMode="row"
   [(selection)]="selectedRow"
+  [paginator]="true"
+  [rows]="5"
 >
   <!-- ---------------Search Golbal---------------------------- -->
   <ng-template pTemplate="caption">
-    <div style="display: flex">
-      <div style="text-align: left;padding-right: 400px">
+    <div class="caption">
+      <div class="capDropdown">
         <p-dropdown
+          [disabled]="(selectedRow?.length != 0) == false"
           [options]="selectedRow"
-          [(ngModel)]="selectedRow"
+          [(ngModel)]="selectTitle"
+          placeholder="Select"
+          optionLabel="title"
+          (onChange)="sendId(selectTitle.id)"
         ></p-dropdown>
       </div>
-      <div style="text-align: right">
+      <div class="capFilterGold">
         <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
         <input
           type="text"
@@ -39,11 +45,14 @@
       <th
         *ngFor="let col of columns"
         [pSortableColumn]="col.field"
-        [ngSwitch]="col.field"
+        [ngSwitch]="col.header"
       >
         <!-- <p-tableHeaderCheckbox *ngSwitchCase="'check'"></p-tableHeaderCheckbox> -->
         {{ col.header }}
-        <p-sortIcon *ngSwitchCase="true" [field]="col.field"></p-sortIcon>
+        <p-sortIcon *ngSwitchCase="'Block'" [field]="col.field"></p-sortIcon>
+        <p-sortIcon *ngSwitchCase="'Title'" [field]="col.field"></p-sortIcon>
+        <p-sortIcon *ngSwitchCase="'Date'" [field]="col.field"></p-sortIcon>
+        <p-sortIcon *ngSwitchCase="'Status'" [field]="col.field"></p-sortIcon>
       </th>
     </tr>
     <!-- -----------------------------dropdow,calender,search----------------------------- -->
@@ -69,6 +78,8 @@
           *ngSwitchCase="'date'"
           [(ngModel)]="date"
           [showIcon]="true"
+          [inputStyle]="{ width: '130px' }"
+          appendTo="body"
         ></p-calendar>
         <p-multiSelect
           *ngSwitchCase="'status'"
@@ -97,7 +108,7 @@
     let-editing="editing"
     let-ri="rowIndex"
   >
-    <tr [pEditableRow]="rowData">
+    <tr [pEditableRow]="rowData" [ngClass]="rowData.status ? 'done' : 'not'">
       <td>
         <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
       </td>

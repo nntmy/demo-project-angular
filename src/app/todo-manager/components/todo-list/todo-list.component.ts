@@ -10,14 +10,13 @@ import { Router, ActivatedRoute } from "@angular/router";
   styleUrls: ["./todo-list.component.css"]
 })
 export class TodoListComponent implements OnInit {
-  public todoArray: Todo[] = [];
+  public todoArray: Todo[];
   public sub: Subscription;
 
   public colorDe: string = "A86AD1";
   sendData: Todo;
-  displayDialog=true;
+  displayDialog = true;
   @Input() selecTodo: Todo;
-  
 
   // filTodo: Todo[];
 
@@ -38,15 +37,10 @@ export class TodoListComponent implements OnInit {
   //   );
   // }
   //
-  constructor(
-    public todoSer: TodoService,
-    public router:Router
-   ) {}
+  constructor(public todoSer: TodoService, public router: Router) {}
 
   ngOnInit() {
     this.showTodo();
-    
-   
   }
   //show value data of server
   showTodo(): void {
@@ -64,8 +58,8 @@ export class TodoListComponent implements OnInit {
   getArrChange(event) {
     this.todoArray = event;
   }
-  selectedTodo(event){
-    this.selecTodo=event;
+  selectedTodo(event) {
+    this.selecTodo = event;
   }
   //gui data sang lib btn-dialog
   getData(todo: Todo) {
@@ -73,14 +67,14 @@ export class TodoListComponent implements OnInit {
 
     console.log("sendData", this.sendData);
   }
- 
+
   deleteClick(todo: Todo) {
     this.todoArray = this.todoArray.filter(h => h != todo);
     this.todoSer.deleteData(todo).subscribe();
   }
 
   editButtonClick(todoId: number) {
-     this.router.navigate(["/edit", todoId]);
+    this.router.navigate(["/edit", todoId]);
   }
 
   // getIndex(id: number): number {

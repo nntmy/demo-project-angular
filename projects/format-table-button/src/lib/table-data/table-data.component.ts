@@ -13,17 +13,13 @@ export class TableDataComponent implements OnInit {
   @Output("sendId") id = new EventEmitter<number>();
   @Output("sendDialog") dialog = new EventEmitter<Todo>();
 
-  todoArray: Todo[];
   cols: any[];
-  first: number = 0;
+  //dropdown status
   status: SelectItem[];
-  title: SelectItem[];
-  clonedCars: { [s: string]: Todo } = {};
-  item: string;
-
   selectedStatus: string[] = [];
-  selectedTitle: string[] = [];
-  selectedRow: SelectItem[];
+  //dropdown selected check
+  selectedRow: SelectItem[] = [];
+  selectTitle: Todo;
 
   date: Date;
 
