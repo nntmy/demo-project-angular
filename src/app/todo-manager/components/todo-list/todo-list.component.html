@@ -51,14 +51,24 @@
     <div id="sidebar">
        <app-btn-edit-de [task]="todo" [arr]="todoArray" (deleteButtonClick)="getArrChange($event)"
         (selectTodo)="selectedTodo($event)"></app-btn-edit-de> -->
-     
-    <!-- </div>
+
+<!-- </div>
   </ng-template>
 </p-virtualScroller>
 <lib-show-dialog [titleDialog]="sendData?.title" [dateDialog]="sendData?.date" [statusDialog]="sendData?.status" [blockDialog]="sendData?.block"></lib-show-dialog>
-<p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p> --> 
+<p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p> -->
 
-<lib-table-data [listTodo]="todoArray" (sendTodo)="deleteClick($event)" (sendId)="editButtonClick($event)" (sendDialog)="getData($event)">
- 
-</lib-table-data>
-<lib-show-dialog [titleDialog]="sendData?.title" [dateDialog]="sendData?.date" [statusDialog]="sendData?.status" [blockDialog]="sendData?.block"></lib-show-dialog>
+<lib-table-data
+  [listTodo]="todoArray"
+  [status]="status"
+  (sendTodo)="deleteClick($event)"
+  (sendId)="editButtonClick($event)"
+  (sendDialog)="getData($event)"
+></lib-table-data>
+
+<lib-show-dialog
+  [titleDialog]="sendData?.title"
+  [dateDialog]="sendData?.date"
+  [statusDialog]="sendData?.status"
+  [blockDialog]="sendData?.block"
+></lib-show-dialog>

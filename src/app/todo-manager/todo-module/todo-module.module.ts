@@ -15,7 +15,7 @@ import { TaskComponent } from "../components/task/task.component";
 import { BtnEditDeComponent } from "../components/btn-edit-de/btn-edit-de.component";
 import { TodoDetailComponent } from "../components/todo-detail/todo-detail.component";
 
-import { HttpClient } from "@angular/common/http";
+//import { HttpClient } from "@angular/common/http";
 
 //library
 
@@ -82,7 +82,7 @@ import { NgxSoapModule } from "ngx-soap";
   ],
   exports: [
     TodoComponent //export de module cha co the goi va su dung <app-todo>
-  ],
-  providers: [HttpClient]
+  ]
+  //providers: [HttpClient]
 })
 export class TodoModuleModule {}

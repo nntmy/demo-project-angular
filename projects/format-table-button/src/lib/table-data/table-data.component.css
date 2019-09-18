@@ -3,7 +3,7 @@
   word-break: break-all;
 }
 
-.done {
+/* .done {
   background-color: #EC6CD4 !important;
   color: #000000 !important;
 }
@@ -11,7 +11,7 @@
 .not {
   background-color: #46E392 !important;
   color: #000000 !important;
-}
+} */
 
 .caption {
   display: inline-block;

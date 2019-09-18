@@ -108,7 +108,7 @@
     let-editing="editing"
     let-ri="rowIndex"
   >
-    <tr [pEditableRow]="rowData" [ngClass]="rowData.status ? 'done' : 'not'">
+    <tr [ngClass]="rowData.status ? 'done' : 'not'">
       <td>
         <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
       </td>

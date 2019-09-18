@@ -15,11 +15,12 @@ export class TableDataComponent implements OnInit {
 
   cols: any[];
   //dropdown status
-  status: SelectItem[];
+  @Input() status: SelectItem[];
   selectedStatus: string[] = [];
   //dropdown selected check
   selectedRow: SelectItem[] = [];
   selectTitle: Todo;
+  //calendar
 
   date: Date;
 
@@ -35,10 +36,10 @@ export class TableDataComponent implements OnInit {
       { field: "button", header: "" }
     ];
 
-    this.status = [
-      { label: "Complete", value: true },
-      { label: "Watting", value: false }
-    ];
+    // this.status = [
+    //   { label: "Complete", value: true },
+    //   { label: "Watting", value: false }
+    // ];
   }
   sendTask(task: Todo) {
     this.todo.emit(task);

@@ -3,6 +3,7 @@ import { TodoService } from "../../services/todo.service";
 import { Subscription } from "rxjs";
 import { Todo } from "./../../todo";
 import { Router, ActivatedRoute } from "@angular/router";
+import { SelectItem } from "primeng/components/common/selectitem";
 
 @Component({
   selector: "app-todo-list",
@@ -18,6 +19,8 @@ export class TodoListComponent implements OnInit {
   displayDialog = true;
   @Input() selecTodo: Todo;
 
+  tmp: Todo[];
+  status: SelectItem[] = [];
   // filTodo: Todo[];
 
   // private _searchText: string;
@@ -42,12 +45,14 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
     this.showTodo();
   }
+
   //show value data of server
   showTodo(): void {
     this.todoSer.getTodo().subscribe(
       data => {
-        console.log(data);
-        this.todoArray = data;
+        this.todoArray = data.sort((a, b) => b.id - a.id);
+
+        this.selctStatus(this.todoArray);
       },
       error => {
         this.todoSer.handleError(error);
@@ -76,7 +81,28 @@ export class TodoListComponent implements OnInit {
   editButtonClick(todoId: number) {
     this.router.navigate(["/edit", todoId]);
   }
-
+  selctStatus(array: Todo[]) {
+    this.status = [];
+    //kiem tra xem gia tri true da co trong mang status chua
+    let a = this.status.find(item => item.value == true);
+    //kiem tra xem gia tri false da co trong mang status chua
+    let b = this.status.find(item => item.value == false);
+    //duyet mang array
+    for (let i = 0; i < array.length; i++) {
+      //object.status = true va mang status chua co gia tri true
+      if (array[i].status == true && a == null) {
+        //push label va value vao mang
+        this.status.push({ label: "Complete", value: true });
+        //kiem tra lai xem gia tri true da co trong mang status chua
+        a = this.status.find(item => item.value == true);
+      } else if (array[i].status == false && b == null) {
+        //push label va value vao mang
+        this.status.push({ label: "Watting", value: false });
+        //kiem tra lai xem gia tri false da co trong mang status chua
+        b = this.status.find(item => item.value == false);
+      }
+    }
+  }
   // getIndex(id: number): number {
   //   let result = 0;
   //   this.todoArray.forEach((task, index) => {
