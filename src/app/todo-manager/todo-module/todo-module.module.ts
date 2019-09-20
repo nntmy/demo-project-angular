@@ -20,6 +20,8 @@ import { TodoDetailComponent } from "../components/todo-detail/todo-detail.compo
 //library
 
 import { FormatTableButtonModule } from "format-table-button";
+import { FormatParagraphChangeModule } from "format-paragraph-change";
+import { DemoLibraryModule } from "demo-library";
 //material
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatChipsModule } from "@angular/material/chips";
@@ -36,6 +38,7 @@ import { MultiSelectModule } from "primeng/multiselect";
 
 //Soap
 import { NgxSoapModule } from "ngx-soap";
+import { from } from "rxjs";
 @NgModule({
   declarations: [
     TodoComponent,
@@ -49,13 +52,15 @@ import { NgxSoapModule } from "ngx-soap";
     TodoDetailComponent
   ],
   imports: [
+    DemoLibraryModule,
     CommonModule,
     TodoModuleRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     //library
     FormatTableButtonModule,
-    //FormatParagraphModule,
+    FormatParagraphChangeModule,
+
     //MyButtonModule,
     //material
     FormsModule,

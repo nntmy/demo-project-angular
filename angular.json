@@ -166,33 +166,68 @@
         }
       }
     },
-    "format-paragraph": {
-      "root": "projects/format-paragraph",
-      "sourceRoot": "projects/format-paragraph/src",
+    "format-paragraph-change": {
+      "root": "projects/format-paragraph-change",
+      "sourceRoot": "projects/format-paragraph-change/src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/format-paragraph/tsconfig.lib.json",
-            "project": "projects/format-paragraph/ng-package.json"
+            "tsConfig": "projects/format-paragraph-change/tsconfig.lib.json",
+            "project": "projects/format-paragraph-change/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/format-paragraph/src/test.ts",
-            "tsConfig": "projects/format-paragraph/tsconfig.spec.json",
-            "karmaConfig": "projects/format-paragraph/karma.conf.js"
+            "main": "projects/format-paragraph-change/src/test.ts",
+            "tsConfig": "projects/format-paragraph-change/tsconfig.spec.json",
+            "karmaConfig": "projects/format-paragraph-change/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/format-paragraph/tsconfig.lib.json",
-              "projects/format-paragraph/tsconfig.spec.json"
+              "projects/format-paragraph-change/tsconfig.lib.json",
+              "projects/format-paragraph-change/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "demo-library": {
+      "root": "projects/demo-library",
+      "sourceRoot": "projects/demo-library/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/demo-library/tsconfig.lib.json",
+            "project": "projects/demo-library/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/demo-library/src/test.ts",
+            "tsConfig": "projects/demo-library/tsconfig.spec.json",
+            "karmaConfig": "projects/demo-library/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/demo-library/tsconfig.lib.json",
+              "projects/demo-library/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

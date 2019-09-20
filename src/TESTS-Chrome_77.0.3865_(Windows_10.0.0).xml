@@ -1,26 +1,38 @@
 <?xml version="1.0"?>
-<testsuite name="Chrome 77.0.3865 (Windows 10.0.0)" package="" timestamp="2019-09-13T10:42:06" id="0" hostname="nttmy" tests="11" errors="0" failures="0" time="1.999">
+<testsuite name="Chrome 77.0.3865 (Windows 10.0.0)" package="" timestamp="2019-09-20T03:57:06" id="0" hostname="nttmy" tests="13" errors="0" failures="1" time="2.753">
   <properties>
-    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.75 Safari/537.36"/>
+    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"/>
   </properties>
-  <testcase name="AppComponent should create the app" time="0.097" classname="Chrome_77_0_3865_(Windows_10_0_0).AppComponent"/>
-  <testcase name="ColorComponent should create" time="0.031" classname="Chrome_77_0_3865_(Windows_10_0_0).ColorComponent"/>
-  <testcase name="BtnEditDeComponent should create" time="0.021" classname="Chrome_77_0_3865_(Windows_10_0_0).BtnEditDeComponent"/>
-  <testcase name="TaskComponent should create" time="0.018" classname="Chrome_77_0_3865_(Windows_10_0_0).TaskComponent"/>
-  <testcase name="TodoAddComponent should create" time="0.091" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoAddComponent"/>
-  <testcase name="TodoDetailComponent should create" time="0.08" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoDetailComponent"/>
-  <testcase name="TodoListComponent should create" time="0.548" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoListComponent"/>
-  <testcase name="TodoComponent should create" time="0.551" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoComponent"/>
-  <testcase name="SearchComponent should create" time="0.559" classname="Chrome_77_0_3865_(Windows_10_0_0).SearchComponent"/>
+  <testcase name="AppComponent should create the app" time="0.048" classname="Chrome_77_0_3865_(Windows_10_0_0).AppComponent"/>
+  <testcase name="ColorComponent should create" time="0.038" classname="Chrome_77_0_3865_(Windows_10_0_0).ColorComponent"/>
+  <testcase name="BtnEditDeComponent should create" time="0.016" classname="Chrome_77_0_3865_(Windows_10_0_0).BtnEditDeComponent"/>
+  <testcase name="TaskComponent should create" time="0.02" classname="Chrome_77_0_3865_(Windows_10_0_0).TaskComponent"/>
+  <testcase name="TodoAddComponent should create" time="0.088" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoAddComponent"/>
+  <testcase name="TodoAddComponent getOtodo" time="0.074" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoAddComponent"/>
+  <testcase name="TodoAddComponent add form todo" time="0.146" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoAddComponent">
+    <failure type="">TypeError: component.frmAdd.value is not a function
+    at UserContext.&lt;anonymous&gt; (src/app/todo-manager/components/todo-add/todo-add.component.spec.ts:57:30)
+    at ZoneDelegate../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:391:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (node_modules/zone.js/dist/zone-testing.js:289:1)
+    at ZoneDelegate../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:390:1)
+    at Zone../node_modules/zone.js/dist/zone.js.Zone.run (node_modules/zone.js/dist/zone.js:150:1)
+    at runInTestZone (node_modules/zone.js/dist/zone-testing.js:510:1)
+    at UserContext.&lt;anonymous&gt; (node_modules/zone.js/dist/zone-testing.js:525:1)
+</failure>
+  </testcase>
+  <testcase name="TodoDetailComponent should create" time="0.086" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoDetailComponent"/>
+  <testcase name="TodoListComponent should create" time="0.793" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoListComponent"/>
+  <testcase name="TodoComponent should create" time="0.712" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoComponent"/>
+  <testcase name="SearchComponent should create" time="0.731" classname="Chrome_77_0_3865_(Windows_10_0_0).SearchComponent"/>
   <testcase name="TodoService should return expected heroes (HttpClient called once)" time="0.001" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoService"/>
-  <testcase name="TodoService should add expected heroes " time="0.002" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoService"/>
+  <testcase name="TodoService should add expected heroes " time="0" classname="Chrome_77_0_3865_(Windows_10_0_0).TodoService"/>
   <system-out>
     <![CDATA[Chrome 77.0.3865 (Windows 10.0.0) LOG: 'task', undefined
+,Chrome 77.0.3865 (Windows 10.0.0) LOG: false
 ,Chrome 77.0.3865 (Windows 10.0.0) LOG: 'loggggggggggggggggggggggggggg'
 ,Chrome 77.0.3865 (Windows 10.0.0) LOG: 'createClient', Object{endpoint: 'https://10.250.161.37:8043/sopi/services/CallLog', httpClient: HttpClient{handler: HttpInterceptingHandler{backend: ..., injector: ..., chain: ...}}}
 ,Chrome 77.0.3865 (Windows 10.0.0) LOG: 'Getting from cache', './../assets/CallLog.wsdl'
 ,Chrome 77.0.3865 (Windows 10.0.0) LOG: 'Reading url: %s', './../assets/CallLog.wsdl'
-,Chrome 77.0.3865 (Windows 10.0.0) LOG: 'bgcolor', undefined
 ,Chrome 77.0.3865 (Windows 10.0.0) LOG: 'kkkkkkkkkkkkkkkkkkkkk', [Object{id: 1, title: 'A', date: '2019-09-12', status: true, block: 'A'}, Object{id: 2, title: 'B', date: '2019-09-12', status: true, block: 'B'}], 2
 
 ]]>

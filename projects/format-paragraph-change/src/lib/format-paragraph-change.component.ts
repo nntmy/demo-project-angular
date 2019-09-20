@@ -1,10 +1,18 @@
-import { Component, OnInit ,Input, Renderer2, ElementRef, Output, EventEmitter  } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Renderer2,
+  ElementRef,
+  Output,
+  EventEmitter
+} from "@angular/core";
 //import { Todo } from 'src/app/todo-manager/todo';
 //import { TodoService } from 'src/app/todo-manager/services/todo.service';
 //import { Router } from '@angular/router';
 
 @Component({
-  selector: "lib-format-paragraph",
+  selector: "lib-format-paragraph-change",
   template: `
     <button pButton type="button" icon="pi pi-pencil">
       <ng-content></ng-content>
@@ -21,7 +29,7 @@ import { Component, OnInit ,Input, Renderer2, ElementRef, Output, EventEmitter  
     `
   ]
 })
-export class FormatParagraphComponent implements OnInit {
+export class FormatParagraphChangeComponent implements OnInit {
   // @Input() task: Todo;
   // @Input() arr: Todo[];
   // @Output("deleteButtonClick") arrAfterDe = new EventEmitter<Todo[]>();
@@ -32,10 +40,9 @@ export class FormatParagraphComponent implements OnInit {
 
   constructor(
     private renderer: Renderer2,
-    private el: ElementRef
-    //public todoSer: TodoService,
-    //private _router: Router
-  ) {}
+    private el: ElementRef //public todoSer: TodoService,
+  ) //private _router: Router
+  {}
   ngOnInit() {}
 
   // editButtonClick(todoId: number) {

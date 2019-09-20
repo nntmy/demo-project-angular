@@ -25,13 +25,18 @@
       "format-table-button/*": [
         "dist/format-table-button/*"
       ],
-      "format-paragraph": [
-        "dist/format-paragraph"
+      "format-paragraph-change": [
+        "dist/format-paragraph-change"
       ],
-      "format-paragraph/*": [
-        "dist/format-paragraph/*"
+      "format-paragraph-change/*": [
+        "dist/format-paragraph-change/*"
+      ],
+      "demo-library": [
+        "dist/demo-library"
+      ],
+      "demo-library/*": [
+        "dist/demo-library/*"
       ]
-
     }
   }
 }

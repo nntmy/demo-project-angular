@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormatParagraphComponent } from './format-paragraph.component';
+import { DemoCompomemtComponent } from './demo-compomemt.component';
 
-describe('FormatParagraphComponent', () => {
-  let component: FormatParagraphComponent;
-  let fixture: ComponentFixture<FormatParagraphComponent>;
+describe('DemoCompomemtComponent', () => {
+  let component: DemoCompomemtComponent;
+  let fixture: ComponentFixture<DemoCompomemtComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormatParagraphComponent ]
+      declarations: [ DemoCompomemtComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormatParagraphComponent);
+    fixture = TestBed.createComponent(DemoCompomemtComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

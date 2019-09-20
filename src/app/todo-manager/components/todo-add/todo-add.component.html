@@ -1,43 +1,54 @@
-<form [formGroup]="frmAdd" (ngSubmit)="onSubmit()">
-  <legend>{{ pageTitle }}{{ id }}</legend>
+<div class="to">
+  <div class="form">
+    <form [formGroup]="frmAdd" (ngSubmit)="onSubmit()">
+      <h2>{{ pageTitle }}{{ id }}</h2>
 
-  <!-- title input -->
-  <div class="form-group">
-    <label for="">Title</label>
-    <input
-      type="text"
-      class="form-control"
-      id=""
-      placeholder="Title task"
-      formControlName="title"
-    />
-  </div>
-  <!-- date input -->
-  <div class="form-group">
-    <label for="">Date</label>
-    <input type="date" class="form-control" id="" formControlName="date" />
-  </div>
-  <!-- status input -->
-  <div class="form-group">
-    <label for="">Status</label>
-    <select name="" id="input" class="form-control" formControlName="status">
-      <option value="true">Complete</option>
-      <option value="false">Waitting</option>
-    </select>
-  </div>
-  <!-- block input -->
-  <div class="form-group">
-    <label for="">Block</label>
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Block task"
-      formControlName="block"
-    />
-  </div>
+      <!-- title input -->
+      <div class="form-group">
+        <label for="">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id=""
+          placeholder="Title task"
+          formControlName="title"
+        />
+      </div>
+      <!-- date input -->
+      <div class="form-group">
+        <label for="">Date</label>
+        <input type="date" class="form-control" id="" formControlName="date" />
+      </div>
+      <!-- status input -->
+      <div class="form-group">
+        <label for="">Status</label>
+        <div style="display: flex">
+          <div style="margin-right: 50px">
+            <input type="radio" formControlName="status" value="true" />
+            Complete
+          </div>
+          <div>
+            <input type="radio" formControlName="status" value="false" />
+            Waitting
+          </div>
+        </div>
+      </div>
+      <!-- block input -->
+      <div class="form-group">
+        <label for="">Block</label>
 
-  <button type="submit" class="btn btn-primary" [disabled]="frmAdd.invalid">
-    Save
-  </button>
-  <!-- <button type="submit" class="btn btn-primary" [disabled]="frmAdd.invalid">Save update</button> -->
-</form>
+        <textarea
+          type="text"
+          class="form-control"
+          placeholder="Block task"
+          formControlName="block"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="frmAdd.invalid">
+        Save
+      </button>
+      <!-- <button type="submit" class="btn btn-primary" [disabled]="frmAdd.invalid">Save update</button> -->
+    </form>
+  </div>
+</div>
